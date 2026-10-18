@@ -6,3 +6,9 @@
 !/Downloads/
 /Downloads/*
 !/Downloads/TerrainLab-Students.unitypackage
+!/Docs/
+/Docs/*
+!/Docs/Images/
+/Docs/Images/*
+!/Docs/Images/terrain-overview.png
+!/Docs/Images/first-person-view.png
