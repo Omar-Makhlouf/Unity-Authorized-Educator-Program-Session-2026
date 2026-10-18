@@ -11,7 +11,7 @@ A hands-on Unity terrain workshop for the **Unity Authorized Educator Program ·
 ![Level](https://img.shields.io/badge/Level-Beginner-22c55e)
 ![Workshop](https://img.shields.io/badge/Workshop-30_minutes-f59e0b)
 
-[**⬇ Download the student Unity Package · 28.4 MB**](https://github.com/Omar-Makhlouf/Unity-Authorized-Educator-Program-Session-2026/raw/refs/heads/main/Downloads/TerrainLab-Students.unitypackage)
+[**⬇ Download the student Unity Package · 28.9 MB**](https://github.com/Omar-Makhlouf/Unity-Authorized-Educator-Program-Session-2026/raw/refs/heads/main/Downloads/TerrainLab-Students.unitypackage)
 
 **One download · Two scenes · Detailed instructions inside Unity**
 
@@ -29,13 +29,11 @@ A hands-on Unity terrain workshop for the **Unity Authorized Educator Program ·
 
 **Requirements:** Universal RP and Input System must be installed. The workshop uses **URP 17.3.0** and **Input System 1.20.0**. Find them under **Window → Package Management → Package Manager**. If Unity asks to enable the new input backends, accept and restart. In **Project Settings → Player → Active Input Handling**, use **Input System Package (New)** or **Both**.
 
-**Download access:** this repository is private. Sign in with an account that has access, or get the package file directly from your teacher.
-
 ## 📖 Your guide lives inside Unity
 
 Select **Assets/Readme.asset**, or choose **Tools → Terrain Lab → Student Exercise** to reopen it.
 
-The Inspector guide has **collapsible sections**, detailed numbered steps, a completion checklist, and the pond challenge. Use **Expand all** for the full exercise or open one step at a time. A Markdown copy is included at **Assets/TerrainLab/START_HERE.md**.
+The Inspector guide includes a **landscape reference image**, **collapsible sections**, step-by-step walkthroughs for the main activities, a completion checklist, and the pond challenge. Each activity explains what to click and what the result should look like. Use **Expand all** for the full exercise or open one step at a time. A Markdown copy is included at **Assets/TerrainLab/START_HERE.md**. The pond remains an independent challenge, with goals rather than a worked solution.
 
 > **Start with the ground.** The starter contains only the sun and prepared player capsule. Create your Terrain before pressing Play, and keep Play stopped while editing.
 
