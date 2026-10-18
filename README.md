@@ -15,7 +15,7 @@ A hands-on Unity terrain workshop for the **Unity Authorized Educator Program ·
 
 ![Finished terrain with C-shaped mountains, a pond loop, trees, and a walking path](Docs/Images/terrain-overview.png)
 
-*From a blank terrain to a landscape you can explore.*
+*From an empty scene to a landscape you can explore.*
 
 </div>
 
@@ -24,18 +24,19 @@ A hands-on Unity terrain workshop for the **Unity Authorized Educator Program ·
 | Start with a blank canvas | Explore the finished example |
 | --- | --- |
 | **TerrainClassroom** | **TerrainFinalized** |
-| Flat, 200 × 200 metre terrain with surface layers, a tree palette, and a playable capsule. | C-shaped mountains, rocky slopes, painted trees, a pond, a reusable bench, and walkable paths. |
-| Build your own landscape with Unity's Terrain tools. | Inspect how the pieces fit together, then explore from eye level. |
+| Empty environment with a prepared player capsule and sun; no Terrain object. | C-shaped mountains, rocky slopes, painted trees, a pond, a reusable bench, and walkable paths. |
+| Create your own Terrain, configure its height, reset its position, and build your landscape. | Inspect how the pieces fit together, then explore from eye level. |
 | [Open scene](Assets/Scenes/TerrainClassroom.unity) | [Open scene](Assets/Scenes/TerrainFinalized.unity) |
 
-Both scenes have independent terrain data and the same first-person player prefab.
+Both scenes use the same first-person player prefab. Students create new TerrainData in the starter; the finished TerrainData stays independent. The finished Terrain is positioned at **(0, 0, 0)** with an **80-metre height range** and a clearing around **Y=12**.
 
 ## ✨ What you'll build and learn
 
+- **Create the ground** — add a Terrain, change its height range, use Set Height → Flatten All, then reset its Transform position to (0, 0, 0).
 - **Shape the land** — raise hills, lower valleys, and smooth a C-shaped mountain border.
 - **Paint the surface** — blend grass, dirt, sand, and rock using photographic textures and normal maps.
 - **Grow a landscape** — paint and erase trees using a registered oak prefab and Terrain tree instances.
-- **Understand a pond** — use a flat water plane above a lowered terrain basin, with a gentle exit ramp.
+- **Take the pond challenge** — work out how to build a pond with a safe route out, using the finished example as your reference.
 - **Reuse a prop** — inspect and place a wooden bench prefab.
 - **Test at eye level** — walk, sprint, jump, and check whether your landscape feels accessible.
 
@@ -60,13 +61,27 @@ git lfs pull
 2. Add the cloned project folder and open it.
 3. Allow Unity to import assets and resolve the packages in the project manifest.
 
-### 3. Pick a scene and press Play
+### 3. Create your terrain or tour the example
 
-- **For the lesson:** open `Assets/Scenes/TerrainClassroom.unity`.
+- **For the lesson:** open `Assets/Scenes/TerrainClassroom.unity` and create the ground using the steps below before pressing Play.
 - **For a tour:** open `Assets/Scenes/TerrainFinalized.unity`.
 - Press **Play**, then click inside the **Game view** to capture the mouse.
 
 The finished example is the first enabled scene in Build Settings, followed by the starter scene.
+
+### 4. Build the starting ground
+
+Keep Play stopped. In the starter scene:
+
+1. Choose **GameObject → 3D Object → Terrain** and name it **Student Terrain**.
+2. In **Terrain Settings**, set Terrain Width and Length to **200**, Terrain Height to **80**, and Heightmap Resolution to **513 × 513**. Terrain Height controls the available vertical range.
+3. Choose **Paint Terrain → Set Height**, try Height **20** and **Flatten All**, then change Height to **12** and **Flatten All** again to reset the ground to the lesson's starting level. Do this before sculpting: Flatten All replaces the entire heightmap.
+4. Reset the Terrain's Transform, checking Position **X=0, Y=0, Z=0**, Rotation **(0, 0, 0)**, and Scale **(1, 1, 1)**. The ground remains at Y=12 because its heightmap is raised above the Terrain origin.
+5. Keep **Classroom Player** at **(100, 12.12, 65)**, just above the ground. Save the scene and project assets. You can now press Play.
+
+The new Terrain starts without paint layers or tree prototypes. Add the supplied Grass, Dirt, and Sand TerrainLayers from `Assets/TerrainClassroom/Layers/`, Rock from `Assets/TerrainFinalized/Layers/`, and register `Assets/TerrainFinalized/Vegetation/ClassroomOak.prefab` with **Paint Trees → Edit Trees → Add Tree**. The [teacher script](Docs/TerrainClassroom.md) walks through these steps. Create fresh TerrainData rather than assigning the old `ClassroomTerrain.asset`.
+
+The starter has no floor until you create one; pressing Play beforehand makes the capsule fall and respawn.
 
 ## 🎮 Explore with keyboard and mouse
 
@@ -91,22 +106,20 @@ The [**complete teacher script**](Docs/TerrainClassroom.md) includes spoken prom
 | Time | Activity |
 | --- | --- |
 | 00:00–03:00 | Tour the finished environment |
-| 03:00–06:00 | Find the tools and learn the editing workflow |
-| 06:00–11:00 | Sculpt a mountain border |
-| 11:00–15:00 | Paint grass, a path, and rocky slopes |
-| 15:00–19:00 | Paint and erase trees |
-| 19:00–23:00 | Demonstrate the pond and bench prefab |
+| 03:00–09:00 | Create Terrain, set/reset height, and reset its Transform |
+| 09:00–13:00 | Sculpt a mountain border |
+| 13:00–17:00 | Add layers and paint grass, paths, and rock |
+| 17:00–21:00 | Register a tree prefab, paint, and erase trees |
+| 21:00–23:00 | Set the pond challenge and inspect a bench prefab |
 | 23:00–28:00 | Walk through the landscape and improve one thing |
 | 28:00–30:00 | Review, save, and answer exit questions |
 
 Give each student a **separate project copy**. Duplicating a scene alone still shares its TerrainData; for independent work in one project, duplicate the TerrainData and assign it to both the Terrain and TerrainCollider.
 
 <details>
-<summary><strong>See the starting canvas</strong></summary>
+<summary><strong>What students start with</strong></summary>
 
-![Flat starter terrain ready for student sculpting and painting](Docs/Images/starter-terrain.png)
-
-The starter keeps the surface clear for student practice. Its tree palette is configured, but no trees are painted initially.
+The Hierarchy contains **Sun** and **Classroom Player** (including its camera and capsule body). Students create the Terrain, its paint layers, and tree palette during the lesson. No pond, terrain, or props are pre-placed.
 
 </details>
 
@@ -117,7 +130,7 @@ The starter keeps the surface clear for student practice. Its tree palette is co
 | `Assets/Scenes/` | Starter and finished teaching scenes |
 | `Assets/Player/` | Shared capsule player prefab and material |
 | `Assets/Scripts/ClassroomFirstPersonController.cs` | Input, movement, gravity, mouse look, and respawn |
-| `Assets/TerrainClassroom/` | Starter terrain data and surface layers |
+| `Assets/TerrainClassroom/` | Reusable surface layers and an unused legacy TerrainData asset; students create fresh TerrainData |
 | `Assets/TerrainFinalized/` | Finished terrain, materials, textures, and props |
 | `Assets/TerrainFinalized/Vegetation/` | Paintable oak prefab and three mesh LODs |
 | `Assets/TerrainFinalized/Prefabs/ParkBench.prefab` | Reusable bench |
@@ -133,7 +146,7 @@ The starter keeps the surface clear for student practice. Its tree palette is co
 
 ## ✅ Validation
 
-Both scenes were checked in Unity for walking, sprinting, jumping, mouse look, cursor release, and respawning. A capsule collision probe traversed the finished entrance, complete pond loop, and east basin exit without jumping. Saved scene, texture, prefab, and tree LOD references were also checked.
+Earlier checks covered the shared player's walking, sprinting, jumping, mouse look, cursor release, and respawning, plus collision checks of the finished entrance, pond loop, and east basin exit. After the lesson update, saved scene checks verify the empty starter, player references, finished terrain at the origin, and aligned pond and props. The starter requires student-created ground before movement can be tested.
 
 These are Editor and focused Play mode checks. A standalone build and a classroom hardware performance benchmark have not been run.
 
