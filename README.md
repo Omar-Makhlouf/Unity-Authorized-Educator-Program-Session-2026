@@ -50,6 +50,8 @@ The finished example includes **38 painted oaks**, a clear approach path, and a 
 
 Students do not need to clone this repository or install Git.
 
+**Download access:** this repository is currently private. Sign in to GitHub with an account that has repository access to use the download link. Teachers can also share `Downloads/TerrainLab-Students.unitypackage` directly; importing the file does not require GitHub access.
+
 1. [**Download TerrainLab-Students.unitypackage**](https://github.com/Omar-Makhlouf/Unity-Authorized-Educator-Program-Session-2026/raw/refs/heads/main/Downloads/TerrainLab-Students.unitypackage). Download this file only; you do not need the repository ZIP.
 2. In Unity Hub, create an empty **Universal 3D (URP)** project using **Unity 6000.3.24f1**.
 3. Choose **Assets → Import Package → Custom Package**, select the file, and import everything.
