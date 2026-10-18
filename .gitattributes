@@ -173,3 +173,6 @@ LightingData.asset     binary
 # TerrainData is serialized as binary; preserve its bytes on every platform.
 Assets/TerrainClassroom/ClassroomTerrain.asset binary -text
 Assets/TerrainFinalized/FinalizedTerrain.asset binary -text
+
+# Keep the student download as a regular Git binary so direct downloads return the package, not an LFS pointer.
+/Downloads/TerrainLab-Students.unitypackage binary -filter

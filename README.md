@@ -13,6 +13,8 @@ A hands-on Unity terrain workshop for the **Unity Authorized Educator Program ·
 
 [**Start the workshop**](#-get-started) · [**Teacher script**](Docs/TerrainClassroom.md) · [**Explore the scenes**](#-two-scenes-one-learning-journey)
 
+[**Download the student Unity Package (28.4 MB)**](https://github.com/Omar-Makhlouf/Unity-Authorized-Educator-Program-Session-2026/raw/refs/heads/main/Downloads/TerrainLab-Students.unitypackage)
+
 ![Finished terrain with C-shaped mountains, a pond loop, trees, and a walking path](Docs/Images/terrain-overview.png)
 
 *From an empty scene to a landscape you can explore.*
@@ -44,7 +46,21 @@ The finished example includes **38 painted oaks**, a clear approach path, and a 
 
 ## 🚀 Get started
 
-### 1. Clone with Git LFS
+### 1. Import the student package
+
+Students do not need to clone this repository or install Git.
+
+1. [**Download TerrainLab-Students.unitypackage**](https://github.com/Omar-Makhlouf/Unity-Authorized-Educator-Program-Session-2026/raw/refs/heads/main/Downloads/TerrainLab-Students.unitypackage). Download this file only; you do not need the repository ZIP.
+2. In Unity Hub, create an empty **Universal 3D (URP)** project using **Unity 6000.3.24f1**.
+3. Choose **Assets → Import Package → Custom Package**, select the file, and import everything.
+4. Open `Assets/Scenes/TerrainClassroom.unity`. The package's `Assets/TerrainLab/START_HERE.md` contains setup notes and the student exercise. The teacher guide stays in this repository at `Docs/TerrainClassroom.md`.
+
+Use a project with **Universal RP** and **Input System** installed (workshop versions: URP **17.3.0**, Input System **1.20.0**). If Input System is missing, install it from **Window → Package Management → Package Manager → Unity Registry** and accept enabling its input backends. Under **Project Settings → Player**, Active Input Handling must be **Input System Package (New)** or **Both**; restart if prompted.
+
+The package includes both scenes, player, input actions, layers, textures, trees, bench, and the student exercise. Teacher instructions are excluded. It uses the destination project's URP setup; it does not install registry packages or replace project settings.
+
+<details>
+<summary><strong>For teachers/developers: clone the full source project instead</strong></summary>
 
 Install [Git LFS](https://git-lfs.com/) before cloning so the photographic textures download correctly.
 
@@ -55,21 +71,21 @@ cd Unity-Authorized-Educator-Program-Session-2026
 git lfs pull
 ```
 
-### 2. Open in Unity Hub
-
 1. Install **Unity 6000.3.24f1** through Unity Hub.
 2. Add the cloned project folder and open it.
 3. Allow Unity to import assets and resolve the packages in the project manifest.
 
-### 3. Create your terrain or tour the example
+</details>
+
+### 2. Create your terrain or tour the example
 
 - **For the lesson:** open `Assets/Scenes/TerrainClassroom.unity` and create the ground using the steps below before pressing Play.
 - **For a tour:** open `Assets/Scenes/TerrainFinalized.unity`.
 - Press **Play**, then click inside the **Game view** to capture the mouse.
 
-The finished example is the first enabled scene in Build Settings, followed by the starter scene.
+In the source project, the finished example is the first enabled scene in Build Settings, followed by the starter scene. Importing the package leaves the destination project's build scene list unchanged; open workshop scenes directly.
 
-### 4. Build the starting ground
+### 3. Build the starting ground
 
 Keep Play stopped. In the starter scene:
 
@@ -82,6 +98,10 @@ Keep Play stopped. In the starter scene:
 The new Terrain starts without paint layers or tree prototypes. Add the supplied Grass, Dirt, and Sand TerrainLayers from `Assets/TerrainClassroom/Layers/`, Rock from `Assets/TerrainFinalized/Layers/`, and register `Assets/TerrainFinalized/Vegetation/ClassroomOak.prefab` with **Paint Trees → Edit Trees → Add Tree**. The [teacher script](Docs/TerrainClassroom.md) walks through these steps. Create fresh TerrainData rather than assigning the old `ClassroomTerrain.asset`.
 
 The starter has no floor until you create one; pressing Play beforehand makes the capsule fall and respawn.
+
+### For teachers: rebuild the package
+
+Close this project in Unity, then run `powershell -NoProfile -ExecutionPolicy Bypass -File ./Tools/Export-StudentPackage.ps1` from the project folder. The execution-policy override applies only to that process. The script updates `Downloads/TerrainLab-Students.unitypackage` using the current saved workshop assets and student exercise, excluding teacher instructions. Pass `-UnityPath` if your Editor is installed elsewhere. Commit the updated package with its source changes so the download stays current. Temporary export logs remain in the ignored `Exports/` folder.
 
 ## 🎮 Explore with keyboard and mouse
 
@@ -114,7 +134,7 @@ The [**complete teacher script**](Docs/TerrainClassroom.md) includes spoken prom
 | 23:00–28:00 | Walk through the landscape and improve one thing |
 | 28:00–30:00 | Review, save, and answer exit questions |
 
-Give each student a **separate project copy**. Duplicating a scene alone still shares its TerrainData; for independent work in one project, duplicate the TerrainData and assign it to both the Terrain and TerrainCollider.
+Have each student import the package into their **own Universal 3D project**. Duplicating a scene alone still shares its TerrainData; for independent work in one project, duplicate the TerrainData and assign it to both the Terrain and TerrainCollider.
 
 <details>
 <summary><strong>What students start with</strong></summary>
@@ -127,6 +147,8 @@ The Hierarchy contains **Sun** and **Classroom Player** (including its camera an
 
 | Location | Contents |
 | --- | --- |
+| `Downloads/TerrainLab-Students.unitypackage` | Student download; import into a new Universal 3D (URP) project |
+| `Assets/TerrainLab/START_HERE.md` | Student setup and exercise included in the package |
 | `Assets/Scenes/` | Starter and finished teaching scenes |
 | `Assets/Player/` | Shared capsule player prefab and material |
 | `Assets/Scripts/ClassroomFirstPersonController.cs` | Input, movement, gravity, mouse look, and respawn |
@@ -149,6 +171,8 @@ The Hierarchy contains **Sun** and **Classroom Player** (including its camera an
 Earlier checks covered the shared player's walking, sprinting, jumping, mouse look, cursor release, and respawning, plus collision checks of the finished entrance, pond loop, and east basin exit. After the lesson update, saved scene checks verify the empty starter, player references, finished terrain at the origin, and aligned pond and props. The starter requires student-created ground before movement can be tested.
 
 These are Editor and focused Play mode checks. A standalone build and a classroom hardware performance benchmark have not been run.
+
+The student package was exported using Unity 6000.3.24f1. Archive checks confirm the saved assets match this repository, required project references are included, and teacher notes are excluded. Importing into a fresh URP project has not yet been tested.
 
 ## 📸 Texture credits
 

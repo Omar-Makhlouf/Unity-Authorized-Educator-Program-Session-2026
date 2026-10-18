@@ -6,7 +6,8 @@ Students create their own terrain, sculpt hills, paint surfaces and trees, then 
 
 ## Before class
 
-- Give each student a separate project copy.
+- Share the [student package download](https://github.com/Omar-Makhlouf/Unity-Authorized-Educator-Program-Session-2026/raw/refs/heads/main/Downloads/TerrainLab-Students.unitypackage). Students create an empty **Universal 3D (URP)** project in Unity **6000.3.24f1**, then use **Assets > Import Package > Custom Package** and import everything. No cloning needed; teacher instructions stay outside the package.
+- Check **Input System** is installed and Active Input Handling is **Input System Package (New)** or **Both**. See the package's `Assets/TerrainLab/START_HERE.md` for setup help.
 - Use `Assets/Scenes/TerrainFinalized.unity` to show the finished example.
 - Start students in `Assets/Scenes/TerrainClassroom.unity`: it contains only the sun and player capsule. Create ground before pressing Play.
 - Keep Play stopped while editing. Students create a **new Terrain**; do not assign the old `ClassroomTerrain.asset`.
