@@ -83,6 +83,13 @@ Both workshop scenes, the player and input actions, terrain layers and photograp
 </details>
 
 <details>
+<summary><strong>Updating an older package with Readme Inspector errors?</strong></summary>
+
+If the Console reports `get_isBatchMode` or `TypeInitializationException` from `ReadmeEditor`, download the current package. In the import dialog, select only **Assets/TutorialInfo/Scripts/Editor/ReadmeEditor.cs** so your scene and terrain work stay untouched. Restart Unity after importing, then clear the old Console messages and reopen **Assets/Readme.asset**.
+
+</details>
+
+<details>
 <summary><strong>📸 Texture credits</strong></summary>
 
 Photographic terrain maps are [Poly Haven](https://polyhaven.com/) assets under its [CC0 license](https://polyhaven.com/license): [Leafy Grass](https://polyhaven.com/a/leafy_grass), [Brown Mud 02](https://polyhaven.com/a/brown_mud_02), [Rock Boulder Dry](https://polyhaven.com/a/rock_boulder_dry), and [Sand 01](https://polyhaven.com/a/sand_01). The player, oak, and bench were created for this workshop.
